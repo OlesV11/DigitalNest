@@ -1,0 +1,104 @@
+.hero {
+  padding: 20px 0;
+}
+.containerBg {
+  background-color: #1a1a1a;
+  border-radius: 12px;
+  padding: 30px 24px 96px;
+  width: 358px;
+  height: 378px;
+}
+.title {
+  font-family: $fff;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #f9efec;
+  margin-bottom: 20px;
+}
+.ctas {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.primaryBtn {
+  border-radius: 100px;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #ce7d63;
+  text-align: center;
+}
+.icon {
+  display: block;
+}
+.cta {
+  font-family: $fff;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #ce7d63;
+}
+.subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #676665;
+  margin-bottom: 31px;
+}
+.services {
+  border-radius: 8px;
+  padding: 14px;
+  width: 325px;
+  height: 49px;
+  background-color: #0f0f0f;
+}
+.serviceItem {
+  font-family: $ffs;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #676665;
+  white-space: nowrap;
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  max-width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.serviceList::-webkit-scrollbar {
+  display: none;
+}
+
+.serviceList li {
+  font-family: $ffs;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #676665;
+  white-space: nowrap;
+}
+
+.serviceList li:not(:last-child)::after {
+  content: '•';
+  margin-left: 12px;
+  color: #ce7d63;
+}

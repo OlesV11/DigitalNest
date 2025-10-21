@@ -1,0 +1,212 @@
+/* Animations */
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes backdropOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    transform: translate3d(8px, 0, 0);
+    opacity: 0;
+  }
+  60% {
+    transform: translate3d(-2px, 0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+@keyframes slideOutRight {
+  from {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate3d(12px, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes itemIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  z-index: 1000;
+  animation: backdropIn 220ms ease both;
+}
+.backdrop.closing {
+  animation: backdropOut 200ms ease both;
+}
+
+.panel {
+  background: #0f1115;
+  color: #fff;
+  width: min(90vw, 360px);
+  min-height: 100dvh;
+  padding: 24px 20px;
+  box-shadow: -8px 0 24px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: slideInRight 280ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.panel.closing {
+  animation: slideOutRight 220ms ease-in both;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.closeBtn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    transform 120ms ease;
+}
+// .closeBtn:hover,
+// .closeBtn:focus-visible {
+//   background: rgba(255, 255, 255, 0.08);
+//   border-color: rgba(255, 255, 255, 0.3);
+//   outline: none;
+// }
+.closeBtn:active {
+  transform: scale(0.96);
+}
+
+.content {
+  display: block;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0 0;
+  display: grid;
+  gap: 8px;
+}
+
+.list a {
+  display: block;
+  padding: 12px 10px;
+  border-radius: 10px;
+  color: #e6e6e6;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.list a:hover,
+.list a:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+  outline: none;
+}
+
+/* Hover ink effect */
+.list a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px 120px at var(--x, 50%) var(--y, 50%),
+    rgba(255, 255, 255, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+}
+.list a:hover::after,
+.list a:focus-visible::after {
+  opacity: 1;
+}
+
+/* Staggered items */
+.list li {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: itemIn 380ms var(--delay, 0ms) cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.list li:nth-child(1) {
+  --delay: 500ms;
+}
+.list li:nth-child(2) {
+  --delay: 1000ms;
+}
+.list li:nth-child(3) {
+  --delay: 1500ms;
+}
+.list li:nth-child(4) {
+  --delay: 2000ms;
+}
+.list li:nth-child(5) {
+  --delay: 2500ms;
+}
+.list li:nth-child(6) {
+  --delay: 3000ms;
+}
+.list li:nth-child(7) {
+  --delay: 3500ms;
+}
+
+@media (min-width: 900px) {
+  .backdrop {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .backdrop.closing,
+  .panel,
+  .panel.closing,
+  .list li {
+    animation: none !important;
+    transition: none !important;
+  }
+}

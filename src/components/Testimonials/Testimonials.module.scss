@@ -1,0 +1,177 @@
+.testimonials {
+  padding: 60px 0;
+}
+.testimonials__container {
+  border: 2px solid #1f1f1f;
+  border-radius: 14px;
+  padding: 10px;
+  width: 358px;
+  min-height: auto;
+}
+.testimonials__title {
+  border-radius: 14px;
+  padding: 24px;
+  width: 338px;
+  height: 81px;
+  background-color: #1a1a1a;
+  font-weight: 600;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #f9efec;
+  margin-bottom: 10px;
+}
+
+/* карточка відгуку */
+.testimonials__card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.testimonials__cardContent {
+  padding: 16px;
+  background: #1a1a1a;
+}
+
+.testimonials__cardTitle {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #f9efec;
+  margin-bottom: 16px;
+}
+
+.testimonials__cardText {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #b3b3b2;
+}
+
+.testimonials__cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  width: 338px;
+  height: auto;
+  background-color: #1f1f1f;
+}
+
+.testimonials__cardAuthor {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonials__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #222;
+  flex-shrink: 0;
+}
+
+.testimonials__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonials__authorBlock {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.testimonials__authorName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f3dfd8;
+}
+.testimonials__authorRole {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #81807e;
+}
+
+.testimonials__cardAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid #262626;
+  background: #0f0f0f;
+  color: #e7beb1;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+.testimonials__cardAction:hover {
+  transform: translateY(-1px);
+  border-color: #ce7d63;
+  box-shadow: 0 4px 10px rgba(206, 125, 99, 0.2);
+}
+.testimonials__item {
+  border-radius: 10px;
+  width: 338px;
+  height: auto;
+  background-color: #1a1a1a;
+  margin-bottom: 10px;
+}
+.testimonials__more {
+  font-family: $ffs;
+  border-radius: 12px;
+  padding: 20px 16px;
+  width: 338px;
+  height: 88px;
+  background-color: #1a1a1a;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: #b3b3b2;
+  border: 2px solid #1f1f1f;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(206, 125, 99, 0.15);
+    transform: translate(-50%, -50%);
+    transition:
+      width 0.5s ease,
+      height 0.5s ease;
+  }
+
+  &:hover {
+    color: #ce7d63;
+    border-color: #ce7d63;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(206, 125, 99, 0.2);
+  }
+
+  &:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(206, 125, 99, 0.15);
+  }
+}
